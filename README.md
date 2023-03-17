@@ -1,13 +1,31 @@
-# TinyTween
+# ttween
 
-TinyTween is a lightweight, easy-to-use tweening library for animating objects in JavaScript.
+ttween (short for TinyTween) is a lightweight, easy-to-use tweening library for animating objects in JavaScript.
 
 ## Getting Started
 
-First, import the Tween class:
+### Install it
+
+First, install.
+
+```node
+npm i ttween
+```
+
+```node
+pnpm i ttween
+```
+
+### Copy it?
+
+It's a single js file, no dependencies, so you might want to just copy the index file in your ptoject and import it from there.
+
+### import it
+
+Import it in your file.
 
 ```js
-import Tween from "./Tween";
+import { Tween } from "ttween";
 ```
 
 Then, create a new Tween instance by passing the target object, the properties to animate, and an optional configuration object:
@@ -42,6 +60,14 @@ The Tween class accepts the following configuration parameters:
 `onUpdate`: A callback function called on every update tick.
 `onComplete`: A callback function called when the tween completes.
 
+#### Defaults
+
+| prop     | default    |
+| :------- | :--------- |
+| duration | 1000       |
+| easing   | easeLinear |
+| delay    | 0          |
+
 ## Easing Functions
 
 TweenJS includes several easing functions:
@@ -59,7 +85,7 @@ easeOutExpo
 You can use these easing functions by importing them:
 
 ```js
-import { easeInOutCubic } from "./EasingFunctions";
+import { easeInOutCubic } from "ttween";
 ```
 
 ## Object Pooling
@@ -85,18 +111,41 @@ tween.kill();
 ### Basic Tween
 
 ```js
-import Tween from "./Tween";
-import { easeInOutCubic } from "./EasingFunctions";
+import { Tween, easeInOutCubic } from "ttween";
 
 const target = { x: 0, y: 0 };
-const properties = { x: 100, y: 200 };
 
-const tween = new Tween(target, properties, {
-  duration: 1000,
-  easing: easeInOutCubic,
-  onUpdate: () => console.log("Updating"),
-  onComplete: () => console.log("Completed"),
-});
+const tween = new Tween(
+  target,
+  { x: 100 },
+  {
+    duration: 1000,
+    easing: easeInOutCubic,
+    onUpdate: () => console.log("Updating"),
+    onComplete: () => console.log("Completed"),
+  }
+);
+
+tween.start();
+```
+
+### Multi Tween
+
+```js
+import { Tween, easeInOutCubic } from "ttween";
+
+const target = { x: 0, y: 0 };
+
+const tween = new Tween(
+  target,
+  { x: 100, y: 200 },
+  {
+    duration: 1000,
+    easing: easeInOutCubic,
+    onUpdate: () => console.log("Updating"),
+    onComplete: () => console.log("Completed"),
+  }
+);
 
 tween.start();
 ```
@@ -104,7 +153,7 @@ tween.start();
 ### Tween with Delay
 
 ```js
-import Tween from "./Tween";
+import { Tween } from "ttween";
 
 const target = { x: 0 };
 const properties = { x: 100 };
