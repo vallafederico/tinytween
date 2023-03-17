@@ -1,10 +1,18 @@
 # ttween
 
-ttween (short for TinyTween) is a lightweight, easy-to-use tweening library for animating objects in JavaScript.
+**ttween** (short for TinyTween) is a super tiny (140 formatted lines), single file, hopefully fast (never tested it) tweening library for animating objects in JavaScript.
+
+🚀
+
+_You should probably use gsap._
 
 ## Getting Started
 
-### Install it
+#### Copy it?
+
+It's a single js file, no dependencies, so you might want to just copy the index file in your ptoject and import it from there.
+
+#### Install it
 
 First, install.
 
@@ -16,11 +24,7 @@ npm i ttween
 pnpm i ttween
 ```
 
-### Copy it?
-
-It's a single js file, no dependencies, so you might want to just copy the index file in your ptoject and import it from there.
-
-### import it
+### Import it
 
 Import it in your file.
 
@@ -28,7 +32,7 @@ Import it in your file.
 import { Tween } from "ttween";
 ```
 
-Then, create a new Tween instance by passing the target object, the properties to animate, and an optional configuration object:
+Then, create a new `Tween` instance by passing the target object, the properties to animate, and an optional configuration object:
 
 ```js
 const target = { x: 0, y: 0 };
@@ -52,42 +56,25 @@ tween.start();
 
 ## Configuration Parameters
 
-The Tween class accepts the following configuration parameters:
-
-`duration`: The duration of the tween in milliseconds. Default is 1000.
-
-`easing`: The easing function used to calculate the interpolated values. Default
-is easeLinear.
-
-`delay`: The delay before the tween starts, in milliseconds. Default is 0.
-
-`onUpdate`: A callback function called on every update tick.
-
-`onComplete`: A callback function called when the tween completes.
-
-#### Defaults
-
-| prop     | default    |
-| :------- | :--------- |
-| duration | 1000       |
-| easing   | easeLinear |
-| delay    | 0          |
+| prop       | default      | value      | desc                                                 |
+| :--------- | :----------- | :--------- | :--------------------------------------------------- |
+| duration   | 1000         | ms         | Tween duration in milliseconds.                      |
+| easing     | easeLinear() | func       | Easing Function.                                     |
+| delay      | 0            | ms         | Tween Delay.                                         |
+| onUpdate   | --           | `callback` | A callback function called on every update tick.     |
+| onComplete | --           | `callback` | A callback function called when the tween completes. |
 
 ## Easing Functions
 
-TweenJS includes several easing functions:
+**ttween** includes several easing functions: easeLinear, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic, easeInOutCubic, easeOutExpo.
 
-easeLinear
-easeInQuad
-easeOutQuad
-easeInOutQuad
-easeInCubic
-easeOutCubic
-easeInOutCubic
-easeInExpo
-easeOutExpo
+You can use these easing functions by importing them. You can also use any easing function you want by passing is as a variable. Use the following format.
 
-You can use these easing functions by importing them:
+```js
+export function easeLinear(t, b, c, d) {
+  return (c * t) / d + b;
+}
+```
 
 ```js
 import { easeInOutCubic } from "ttween";
@@ -95,7 +82,7 @@ import { easeInOutCubic } from "ttween";
 
 ## Object Pooling
 
-TweenJS uses an object pooling system to optimize memory usage and performance. To create a new Tween instance using the object pool, use the Tween.create method:
+**ttween** uses an object pooling system to optimize memory usage and performance. To create a new Tween instance using the object pool, use the Tween.create method:
 
 ```js
 const tween = Tween.create(target, properties, config);
