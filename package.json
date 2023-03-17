@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vallafederico/tinytween.git"
+    "url": "git+https://github.com/vallafederico/ttween.git"
   },
   "keywords": [
     "tween",
@@ -18,9 +18,9 @@
   "author": "Federico Valla @vallafederico",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vallafederico/tinytween/issues"
+    "url": "https://github.com/vallafederico/ttween/issues"
   },
-  "homepage": "https://github.com/vallafederico/tinytween#readme",
+  "homepage": "https://github.com/vallafederico/ttween#readme",
   "dependencies": {},
   "devDependencies": {}
 }
