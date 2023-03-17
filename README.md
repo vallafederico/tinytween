@@ -1,7 +1,9 @@
-# TweenJS
-TweenJS is a lightweight, easy-to-use tweening library for animating objects in JavaScript.
+# TinyTween
+
+TinyTween is a lightweight, easy-to-use tweening library for animating objects in JavaScript.
 
 ## Getting Started
+
 First, import the Tween class:
 
 ```js
