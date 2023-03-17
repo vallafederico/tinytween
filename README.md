@@ -80,7 +80,7 @@ export function easeLinear(t, b, c, d) {
 }
 ```
 
-## Object Pooling
+## Object Pooling
 
 **ttween** uses an object pooling system to optimize memory usage and performance. To create a new Tween instance using the object pool, use the Tween.create method:
 
