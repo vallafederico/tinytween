@@ -1,8 +1,8 @@
-#TinyTween
+# TinyTween
 
 TinyTween is a lightweight, easy-to-use tweening library for animating objects in JavaScript.
 
-## Getting Started
+## Getting Started
 
 First, import the Tween class:
 
@@ -32,7 +32,7 @@ Finally, start the tween:
 tween.start();
 ```
 
-## Configuration Parameters
+## Configuration Parameters
 
 The Tween class accepts the following configuration parameters:
 
@@ -42,7 +42,7 @@ The Tween class accepts the following configuration parameters:
 `onUpdate`: A callback function called on every update tick.
 `onComplete`: A callback function called when the tween completes.
 
-## Easing Functions
+## Easing Functions
 
 TweenJS includes several easing functions:
 
@@ -72,7 +72,7 @@ const tween = Tween.create(target, properties, config);
 
 When a tween completes or is killed, it is returned to the object pool for future reuse.
 
-## Kill a Tween
+## Kill a Tween
 
 To instantly stop a tween and remove it from the active tweens list, call the kill method on the tween instance:
 
@@ -80,7 +80,7 @@ To instantly stop a tween and remove it from the active tweens list, call the ki
 tween.kill();
 ```
 
-## Examples
+## Examples
 
 ### Basic Tween
 
@@ -101,7 +101,7 @@ const tween = new Tween(target, properties, {
 tween.start();
 ```
 
-### Tween with Delay
+### Tween with Delay
 
 ```js
 import Tween from "./Tween";
