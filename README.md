@@ -55,9 +55,14 @@ tween.start();
 The Tween class accepts the following configuration parameters:
 
 `duration`: The duration of the tween in milliseconds. Default is 1000.
-`easing`: The easing function used to calculate the interpolated values. Default is easeLinear.
+
+`easing`: The easing function used to calculate the interpolated values. Default
+is easeLinear.
+
 `delay`: The delay before the tween starts, in milliseconds. Default is 0.
+
 `onUpdate`: A callback function called on every update tick.
+
 `onComplete`: A callback function called when the tween completes.
 
 #### Defaults
