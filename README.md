@@ -68,16 +68,16 @@ tween.start();
 
 **ttween** includes several easing functions: easeLinear, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic, easeInOutCubic, easeOutExpo.
 
+```js
+import { easeInOutCubic } from "ttween";
+```
+
 You can use these easing functions by importing them. You can also use any easing function you want by passing is as a variable. Use the following format.
 
 ```js
 export function easeLinear(t, b, c, d) {
   return (c * t) / d + b;
 }
-```
-
-```js
-import { easeInOutCubic } from "ttween";
 ```
 
 ## Object Pooling
