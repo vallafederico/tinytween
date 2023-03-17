@@ -1,5 +1,5 @@
 {
-  "name": "tinytween",
+  "name": "ttween",
   "version": "1.0.1",
   "description": "A lightweight, easy-to-use tweening library for animating objects in JavaScript.",
   "main": "index.js",
@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/tinytween.git"
+    "url": "git+https://github.com/vallafederico/tinytween.git"
   },
   "keywords": [
     "tween",
     "animation",
     "javascript"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Federico Valla @vallafederico",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/tinytween/issues"
+    "url": "https://github.com/vallafederico/tinytween/issues"
   },
-  "homepage": "https://github.com/yourusername/tinytween#readme",
+  "homepage": "https://github.com/vallafederico/tinytween#readme",
   "dependencies": {},
   "devDependencies": {}
 }
