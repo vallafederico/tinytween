@@ -1,4 +1,4 @@
-# TinyTween
+#TinyTween
 
 TinyTween is a lightweight, easy-to-use tweening library for animating objects in JavaScript.
 
