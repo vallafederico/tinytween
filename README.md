@@ -10,7 +10,7 @@ _You should probably use gsap._
 
 #### Copy it?
 
-It's a single js file, no dependencies, so you might want to just copy the index file in your ptoject and import it from there.
+It's a single js file, no dependencies, so you might want to just copy the index file in your project and import it from there.
 
 #### Install it
 
