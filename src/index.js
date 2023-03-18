@@ -1,48 +1,16 @@
-// Linear easing (already in the library)
-export function easeLinear(t, b, c, d) {
-  return (c * t) / d + b;
-}
-
-// Quadratic easing
-export function easeInQuad(t, b, c, d) {
-  t /= d;
-  return c * t * t + b;
-}
-
-export function easeOutQuad(t, b, c, d) {
-  t /= d;
-  return -c * t * (t - 2) + b;
-}
-
-export function easeInOutQuad(t, b, c, d) {
-  t /= d / 2;
-  if (t < 1) return (c / 2) * t * t + b;
-  t--;
-  return (-c / 2) * (t * (t - 2) - 1) + b;
-}
-
-// Cubic easing
-export function easeInCubic(t, b, c, d) {
-  t /= d;
-  return c * t * t * t + b;
-}
-
-export function easeOutCubic(t, b, c, d) {
-  t = t / d - 1;
-  return c * (t * t * t + 1) + b;
-}
-
-export function easeInOutCubic(t, b, c, d) {
-  t /= d / 2;
-  if (t < 1) return (c / 2) * t * t * t + b;
-  t -= 2;
-  return (c / 2) * (t * t * t + 2) + b;
-}
-
-// Expo easing
-export function easeOutExpo(t, b, c, d) {
-  return t === d ? b + c : c * (-Math.pow(2, (-10 * t) / d) + 1) + b;
-}
+import {
+  easeLinear,
+  easeSpring,
+  easeOutExpoGsap,
+  easeInExpo,
+  easeOutExpo,
+  easeInOutCubic,
+  easeOutCubic,
+  easeInCubic,
+  easeInOutQuad,
+  easeOutQuad,
+  easeInQuad,
+} from "./easing.js";
 
 /** Tween class */
 export class Tween {
@@ -66,8 +34,25 @@ export class Tween {
 
   start() {
     if (!this.startTime) {
-      this.startTime = performance.now() + this.delay;
+      this.startTime = performance.now();
+
+      this.properties.forEach((prop) => {
+        const activeTween = Tween.activeTweensByTarget
+          .get(this.target)
+          ?.get(prop);
+        if (activeTween) {
+          activeTween.kill();
+        }
+
+        if (!Tween.activeTweensByTarget.has(this.target)) {
+          Tween.activeTweensByTarget.set(this.target, new Map());
+        }
+
+        Tween.activeTweensByTarget.get(this.target).set(prop, this);
+      });
+
       Tween.activeTweens.push(this);
+
       if (!Tween.animationFrame) {
         Tween.animationFrame = requestAnimationFrame(Tween.tick);
       }
@@ -78,7 +63,11 @@ export class Tween {
     const index = Tween.activeTweens.indexOf(this);
     if (index !== -1) {
       Tween.activeTweens.splice(index, 1);
+      this.properties.forEach((prop) => {
+        Tween.activeTweensByTarget.get(this.target)?.delete(prop);
+      });
       Tween.pool.push(this);
+      this.startTime = null;
     }
   }
 
@@ -138,4 +127,20 @@ export class Tween {
 }
 
 Tween.activeTweens = [];
+Tween.activeTweensByTarget = new Map(); // Add this line
 Tween.pool = [];
+
+/* -- Exports */
+export {
+  easeLinear,
+  easeSpring,
+  easeOutExpoGsap,
+  easeInExpo,
+  easeOutExpo,
+  easeInOutCubic,
+  easeOutCubic,
+  easeInCubic,
+  easeInOutQuad,
+  easeOutQuad,
+  easeInQuad,
+};
